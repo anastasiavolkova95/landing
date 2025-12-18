@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anastasia Volkova | El Protocolo de Soberanía</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #f7931a; 
+            --dark-bg: #020202;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #f7931a 10%, #ffc107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f7931a 0%, #ffc107 100%);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            letter-spacing: 0.2em;
+        }
+
+        .btn-gold:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 40px rgba(247, 147, 26, 0.25);
+            filter: brightness(1.1);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            transition: all 0.4s ease;
+        }
+
+        .glass-input:focus {
+            border-color: var(--gold) !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        #loadingOverlay {
+            display: none;
+            background: rgba(0,0,0,0.95);
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#f7931a] selection:text-black">
+
+    <div class="grain"></div>
+
+    <div id="loadingOverlay">
+        <div class="h-[1px] w-48 bg-white/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[#f7931a] animate-[loading_2s_ease-in-out_infinite]"></div>
+        </div>
+        <p class="text-[9px] tracking-[0.8em] uppercase text-[#f7931a] font-bold mt-4">Procesando Identidad</p>
+    </div>
+
+    <style>
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+
+    <header class="pt-24 pb-12 text-center relative z-10">
+        <div class="inline-block group cursor-default">
+            <h1 class="text-4xl md:text-5xl tracking-tighter font-bold mb-1">AV — Anastasia Volkova</h1>
+            <div class="h-[1px] w-full bg-[#f7931a]/30 mx-auto"></div>
+        </div>
+        <p class="text-[10px] text-gray-600 uppercase tracking-[0.7em] font-medium mt-3">Clarity in the crypto chaos</p>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center px-6 py-12 relative z-10">
+        <div class="max-w-7xl w-full grid lg:grid-cols-2 gap-20 items-center">
+            
+            <div class="space-y-14">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center space-x-3 text-[#f7931a]">
+                        <span class="text-[10px] font-bold tracking-[0.4em] uppercase">Información Clasificada</span>
+                        <span class="h-px w-12 bg-[#f7931a]/30"></span>
+                    </div>
+                    <h2 class="text-6xl md:text-8xl leading-[0.9] font-bold tracking-tighter">
+                        La mayoría <br><span class="italic font-light">no posee</span> su <br><span class="gold-gradient">Riqueza.</span>
+                    </h2>
+                    <p class="text-gray-500 text-xl leading-relaxed max-w-lg font-light">
+                        Si tu capital depende de un permiso, no es tuyo. Es una deuda que el sistema puede cancelar. Esta guía es el <span class="text-white italic">punto de no retorno</span> hacia la soberanía absoluta.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-[#f7931a]/5 rounded-full blur-[120px]"></div>
+                
+                <div class="relative bg-[#080808] border border-white/5 p-12 lg:p-16 rounded-[3rem] overflow-hidden shadow-2xl">
+                    <div class="mb-12">
+                        <h3 class="text-3xl font-bold mb-4 italic tracking-tight">"Bitcoin: Tu Escudo Financiero"</h3>
+                        <p class="text-gray-400 text-[11px] uppercase tracking-[0.2em] leading-loose">Transferencia de poder inmediata. <br>Acceso directo al manual de Anastasia Volkova.</p>
+                    </div>
+
+                    <form id="leadForm" class="space-y-8">
+                        <div class="space-y-3">
+                            <label class="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-bold ml-1">Identificador (Nombre)</label>
+                            <input type="text" name="nombre" id="nombre" required 
+                                class="w-full glass-input rounded-2xl px-6 py-5 text-sm text-white focus:outline-none placeholder-gray-800"
+                                placeholder="Tu nombre">
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-bold ml-1">Canal de Transmisión (Email)</label>
+                            <input type="email" name="email" id="email" required 
+                                class="w-full glass-input rounded-2xl px-6 py-5 text-sm text-white focus:outline-none placeholder-gray-800"
+                                placeholder="email@privado.com">
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="btn-gold w-full py-6 rounded-2xl font-bold text-black uppercase tracking-[0.3em] text-[10px]">
+                                Reclamar mi Independencia
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-20 text-center opacity-30 relative z-10">
+        <p class="text-gray-600 text-[8px] uppercase tracking-[0.8em] font-medium">Anastasia Volkova — Veritas Vos Liberabit</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('leadForm');
+        const loading = document.getElementById('loadingOverlay');
+        
+        /**
+         * 1. REEMPLAZA ESTA URL con la nueva URL de tu Google Apps Script desplegada
+         */
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxYaYlo7jveTJH2lVq1Xy-NYIPgogqabBrBw-6jYxi335wtOHC1pyFCXcNhW29oJVnh/exec'; 
+
+        /**
+         * 2. ASEGÚRATE de que el nombre del archivo en GitHub sea idéntico
+         */
+        const pdfFileName = 'Bitcoin,%20tu%20escudo%20financiero.pdf';
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            loading.style.display = 'flex';
+
+            // Usamos una URLSearchParams para asegurar compatibilidad total con Apps Script
+            const formData = new FormData(form);
+            
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: formData,
+                mode: 'no-cors' // Google Apps Script requiere a veces no-cors para evitar errores de preflight
+            })
+            .then(() => {
+                // Como usamos no-cors, no podemos leer el JSON de respuesta de Google de forma segura, 
+                // pero si llega aquí es que la petición salió.
+                loading.style.display = 'none';
+                ejecutarDescarga();
+                mostrarExito();
+            })
+            .catch(error => {
+                loading.style.display = 'none';
+                console.error('Error!', error.message);
+                // Intentamos descargar igual para no frustrar al usuario
+                ejecutarDescarga();
+                mostrarExito();
+            });
+        });
+
+        function ejecutarDescarga() {
+            const link = document.createElement('a');
+            link.href = pdfFileName; 
+            link.download = 'Manual_Soberania_Anastasia_Volkova.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function mostrarExito() {
+            form.parentElement.innerHTML = `
+                <div class="text-center py-20 animate-in fade-in duration-700">
+                    <div class="mb-10">
+                        <svg class="w-20 h-20 mx-auto text-[#f7931a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6 italic">La llave es tuya.</h4>
+                    <p class="text-gray-500 text-[10px] uppercase tracking-[0.4em]">El manual ha sido liberado.</p>
+                </div>
+            `;
+        }
+    </script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
